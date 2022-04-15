@@ -19,7 +19,6 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="475dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="20dp"
         android:text="Tasks"
@@ -33,9 +32,22 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="475dp"
-        android:layout_marginEnd="145dp"
+        android:layout_marginEnd="147dp"
         android:layout_marginBottom="20dp"
         android:text="Profile"
+        android:textAllCaps="false"
+        android:textSize="22sp" />
+
+    <Button
+        android:id="@+id/activities"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="475dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="20dp"
+        android:text="Activity"
         android:textAllCaps="false"
         android:textSize="22sp" />
 

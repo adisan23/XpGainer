@@ -11,6 +11,7 @@ import android.widget.Button;
 public class XpGainer extends AppCompatActivity {
     private Button taskbutton;
     private Button profilebutton;
+    private Button activitybutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,14 @@ public class XpGainer extends AppCompatActivity {
 
             }
         });
+        activitybutton = (Button) findViewById(R.id.activities);
+        activitybutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivites();
+
+            }
+        });
     }
 
     public void openTasks() {
@@ -44,6 +53,12 @@ public class XpGainer extends AppCompatActivity {
     public void openProfile() {
         Intent intent2 = new Intent(this, Profile.class);
         startActivity(intent2);
+
+
+    }
+    public void openActivites() {
+        Intent activitiesintent = new Intent(this, Activities.class);
+        startActivity(activitiesintent);
 
 
     }
