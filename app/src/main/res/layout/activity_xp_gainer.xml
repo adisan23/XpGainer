@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".XpGainer">
 
+
+    <TextView
+        android:id="@+id/XpScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignBaseline="@id/GainedXp"
+        android:text="99999"
+        android:textSize="24sp" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,6 +60,17 @@
         android:text="Activity"
         android:textAllCaps="false"
         android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/GainedXp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="50dp"
+        android:text="XP Gained : "
+        android:textSize="24sp" />
 
 
 </RelativeLayout>
