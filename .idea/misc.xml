@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Adi/AndroidStudioProjects/XpGainer/app/src/main/res/layout/activity_main.xml" value="0.28804347826086957" />
+        <entry key="..\:/Users/conor/AndroidStudioProjects/XpGainer/app/src/main/res/layout/activity_profile.xml" value="0.2" />
+        <entry key="..\:/Users/conor/AndroidStudioProjects/XpGainer/app/src/main/res/layout/activity_tasks.xml" value="0.25" />
+        <entry key="..\:/Users/conor/AndroidStudioProjects/XpGainer/app/src/main/res/layout/activity_xp_gainer.xml" value="0.7004405286343612" />
       </map>
     </option>
   </component>

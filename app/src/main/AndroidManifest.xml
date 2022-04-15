@@ -10,7 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.XpGainer">
         <activity
-            android:name=".MainActivity"
+            android:name=".Profile"
+            android:exported="false" />
+        <activity
+            android:name=".Tasks"
+            android:exported="false" />
+        <activity
+            android:name=".XpGainer"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
