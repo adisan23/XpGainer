@@ -2,7 +2,6 @@ package com.example.xpgainer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.accessibilityservice.AccessibilityService;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,7 +15,7 @@ public class XpGainer extends AppCompatActivity {
     private Button taskbutton;
     private Button profilebutton;
     private Button activitybutton;
-
+    private ListView actTasks;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +45,19 @@ public class XpGainer extends AppCompatActivity {
 
             }
         });
+        actTasks = findViewById(R.id.actTasks);
+        ArrayList aTasks = new ArrayList<>();
+        aTasks.add("Run 3 miles");
+        aTasks.add("Read a book");
+        aTasks.add("Find a hobby");
+        ArrayAdapter<String> atasksList = new ArrayAdapter<>(
+                this,
+                android.R.layout.simple_list_item_1,
+                aTasks
+        );
+
+        actTasks.setAdapter(atasksList);
+
     }
 
     public void openTasks() {

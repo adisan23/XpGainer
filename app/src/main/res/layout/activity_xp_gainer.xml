@@ -94,7 +94,7 @@
         android:textSize="22sp" />
 
     <ListView
-        android:id="@+id/activeTasks"
+        android:id="@+id/actTasks"
         android:layout_width="match_parent"
         android:layout_height="479dp"
         android:layout_alignParentTop="true"
