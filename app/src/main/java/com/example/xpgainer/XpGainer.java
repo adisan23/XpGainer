@@ -16,6 +16,7 @@ public class XpGainer extends AppCompatActivity {
     private Button profilebutton;
     private Button activitybutton;
     private ListView actTasks;
+    private Button btnRegister;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +30,15 @@ public class XpGainer extends AppCompatActivity {
 
             }
         });
+
+        btnRegister = findViewById(R.id.btnRegister);
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openRegisterPage();
+            }
+        });
+
         profilebutton = (Button) findViewById(R.id.profile);
         profilebutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +86,10 @@ public class XpGainer extends AppCompatActivity {
         Intent activitiesintent = new Intent(this, Activities.class);
         startActivity(activitiesintent);
 
+    }
 
+    public void openRegisterPage(){
+        Intent registerIntent = new Intent(this, RegisterUser.class);
+        startActivity(registerIntent);
     }
 }
