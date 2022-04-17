@@ -9,18 +9,15 @@
 
     <TextView
         android:id="@+id/XpScore"
-        android:layout_width="wrap_content"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_alignBaseline="@id/GainedXp"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginRight="13dp"
+        android:layout_toEndOf="@+id/GainedXp"
         android:text="99999"
-        android:textSize="24sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Home" />
+        android:textSize="22sp" />
 
     <Button
         android:id="@+id/tasks"
@@ -65,12 +62,56 @@
         android:id="@+id/GainedXp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
 
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="102dp"
+        android:layout_toEndOf="@+id/textView2"
         android:text="XP Gained : "
-        android:textSize="24sp" />
+        android:textColorLink="#651FFF"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="102dp"
+        android:text="Level: "
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="102dp"
+        android:layout_toEndOf="@+id/textView"
+        android:text="1"
+        android:textSize="22sp" />
+
+    <ListView
+        android:id="@+id/activeTasks"
+        android:layout_width="match_parent"
+        android:layout_height="479dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="171dp"
+        android:layout_marginBottom="81dp" />
+
+    <TextView
+        android:id="@+id/activetasks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="142dp"
+        android:text="Active Tasks"
+        android:textSize="22sp" />
 
 
 </RelativeLayout>
