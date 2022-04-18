@@ -2,19 +2,23 @@ package com.example.xpgainer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class RegisterUser extends AppCompatActivity {
+import com.google.firebase.auth.FirebaseAuth;
 
-    private EditText edtTxtName, edtTxtEmail, edtTxtPassword, edtTxtRePass;
+import org.w3c.dom.Text;
 
-    private TextView txtWarnName, txtWarnEmail, txtWarnPass, txtWarnRePass;
+public class RegisterUser extends AppCompatActivity implements View.OnClickListener{
 
-    private Button btnRegister;
+    private EditText edtTxtName, edtTxtEmail, edtTxtPassword, edtTxtAge;
+    private TextView banner, btnRegister;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,69 +27,84 @@ public class RegisterUser extends AppCompatActivity {
 
         initView();
 
-        btnRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                initRegister();
-            }
-        });
-    }
+        mAuth = FirebaseAuth.getInstance();
 
-    private void initRegister() {
-        if(validateData() ){
-            txtWarnName.setVisibility(View.GONE);
-            txtWarnEmail.setVisibility(View.GONE);
-            txtWarnPass.setVisibility(View.GONE);
-            txtWarnRePass.setVisibility(View.GONE);
-        }
-    }
+        banner = findViewById(R.id.banner);
+        banner.setOnClickListener(this);
 
-    private boolean validateData(){
-        if(edtTxtName.getText().toString().equals("")){
-            txtWarnName.setVisibility(View.VISIBLE);
-            txtWarnName.setText("Enter your Name");
-            return false;
-        }
+        btnRegister = findViewById(R.id.btnRegister);
+        btnRegister.setOnClickListener(this);
 
-        if(edtTxtEmail.getText().toString().equals("")){
-            txtWarnEmail.setVisibility(View.VISIBLE);
-            txtWarnEmail.setText("Enter your Email");
-            return false;
-        }
 
-        if(edtTxtPassword.getText().toString().equals("")){
-            txtWarnPass.setVisibility(View.VISIBLE);
-            txtWarnPass.setText("Enter your Password");
-            return false;
-        }
-
-        if(edtTxtRePass.getText().toString().equals("")){
-            txtWarnRePass.setVisibility(View.VISIBLE);
-            txtWarnRePass.setText("Re Enter your Password");
-            return false;
-        }
-
-        if(!edtTxtPassword.getText().toString().equals(edtTxtRePass.getText().toString())){
-            txtWarnRePass.setVisibility(View.VISIBLE);
-            txtWarnRePass.setText("Password doesn't match");
-        }
-
-        return true;
     }
 
     private void initView(){
         edtTxtName = findViewById(R.id.edtTxtName);
         edtTxtEmail = findViewById(R.id.edtTxtEmail);
         edtTxtPassword = findViewById(R.id.edtTxtPassword);
-        edtTxtRePass = findViewById(R.id.edtTxtRePass);
-
-        txtWarnName = findViewById(R.id.txtWarnName);
-        txtWarnEmail = findViewById(R.id.txtWarnEmail);
-        txtWarnPass = findViewById(R.id.txtWarnPass);
-        txtWarnRePass = findViewById(R.id.txtWarnRePass);
+        edtTxtAge = findViewById(R.id.edtTxtAge);
 
         btnRegister = findViewById(R.id.btnRegister);
+
+        banner = findViewById(R.id.banner);
     }
 
+
+    @Override
+    public void onClick(View view) {
+        switch(view.getId()){
+            case R.id.banner:
+                startActivity(new Intent(this, XpGainer.class));
+                break;
+                case R.id.btnRegister:
+                    registerUser();
+                    break;
+        }
+    }
+
+    private void registerUser() {
+        String email = edtTxtEmail.getText().toString().trim();
+        String password = edtTxtPassword.getText().toString().trim();
+        String name = edtTxtName.getText().toString().trim();
+        String age = edtTxtAge.getText().toString().trim();
+
+        if(name.isEmpty()){
+            edtTxtName.setError("Name is required");
+            edtTxtName.requestFocus();
+            return;
+        }
+
+       if(age.isEmpty()){
+           edtTxtAge.setError("Age is required");
+           edtTxtAge.requestFocus();
+           return;
+       }
+
+       if(email.isEmpty()){
+           edtTxtEmail.setError("Email is required");
+           edtTxtEmail.requestFocus();
+           return;
+       }
+
+       if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+           edtTxtEmail.setError("Please provide valid email!");
+           edtTxtEmail.requestFocus();
+           return;
+       }
+
+       if(password.isEmpty()){
+           edtTxtPassword.setError("Password is required");
+           edtTxtPassword.requestFocus();
+           return;
+       }
+
+       if(password.length() < 6){
+           edtTxtPassword.setError("Password is required");
+           edtTxtPassword.requestFocus();
+           return;
+       }
+
+
+    }
 
 }

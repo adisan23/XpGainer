@@ -48,7 +48,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/profileImage"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -125,7 +125,7 @@
         app:layout_constraintGuide_begin="715dp" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/profileImage"
         android:layout_width="120dp"
         android:layout_height="120dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
