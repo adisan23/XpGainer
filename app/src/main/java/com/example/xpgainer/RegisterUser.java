@@ -118,7 +118,7 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
                    @Override
                    public void onComplete(@NonNull Task<AuthResult> task) {
                        if(task.isSuccessful()){
-                           User user = new User(name, age, email);
+                           User user = new User(name, age, email,1,0);
 
 
                            FirebaseDatabase.getInstance("https://xpgainer-4d2dd-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Users")

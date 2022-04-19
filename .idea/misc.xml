@@ -3,13 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Sebastian/AndroidStudioProjects/XpGainer/app/src/main/res/layout/activity_register_user.xml" value="0.2798913043478261" />
+        <entry key="..\:/Users/Sebastian/AndroidStudioProjects/XpGainer/app/src/main/res/layout/activity_tasks.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/Sebastian/AndroidStudioProjects/XpGainer/app/src/main/res/layout/activity_xp_gainer.xml" value="0.21467391304347827" />
         <entry key="..\:/Users/conor/AndroidStudioProjects/XpGainer/app/src/main/res/drawable-anydpi/Homeicon.xml" value="0.1" />
         <entry key="..\:/Users/conor/AndroidStudioProjects/XpGainer/app/src/main/res/drawable/profilepic_background.xml" value="0.209" />
         <entry key="..\:/Users/conor/AndroidStudioProjects/XpGainer/app/src/main/res/layout/activity_activities.xml" value="0.18840579710144928" />
         <entry key="..\:/Users/conor/AndroidStudioProjects/XpGainer/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
         <entry key="..\:/Users/conor/AndroidStudioProjects/XpGainer/app/src/main/res/layout/activity_profile.xml" value="0.33" />
-        <entry key="..\:/Users/conor/AndroidStudioProjects/XpGainer/app/src/main/res/layout/activity_tasks.xml" value="0.21112372304199772" />
-        <entry key="..\:/Users/conor/AndroidStudioProjects/XpGainer/app/src/main/res/layout/activity_xp_gainer.xml" value="0.33" />
+        <entry key="..\:/Users/conor/AndroidStudioProjects/XpGainer/app/src/main/res/layout/activity_tasks.xml" value="0.25" />
+        <entry key="..\:/Users/conor/AndroidStudioProjects/XpGainer/app/src/main/res/layout/activity_xp_gainer.xml" value="0.5" />
         <entry key="..\:/Users/conor/AndroidStudioProjects/XpGainer/app/src/main/res/mipmap-anydpi-v26/profilepic.xml" value="0.1" />
         <entry key="..\:/Users/conor/AndroidStudioProjects/XpGainer/app/src/main/res/mipmap-anydpi-v26/profilepic_round.xml" value="0.209" />
       </map>

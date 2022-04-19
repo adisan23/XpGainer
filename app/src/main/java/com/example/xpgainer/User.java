@@ -2,16 +2,19 @@ package com.example.xpgainer;
 
 public class User {
 
-    public String name, email, age;
+    private String name, email, age;
+    public int level, experience;
 
     public User(){
 
     }
 
-    public User(String name, String age, String email){
+    public User(String name, String age, String email,int level, int experience){
         this.name = name;
         this.age = age;
         this.email = email;
+        this.level = 1;
+        this.experience = 0;
     }
 
     @Override
