@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "60900087331",
+    "firebase_url": "https://xpgainer-4d2dd-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "xpgainer-4d2dd",
+    "storage_bucket": "xpgainer-4d2dd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:60900087331:android:1c2343aa86fa32fab70396",
+        "android_client_info": {
+          "package_name": "com.example.xpgainer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "60900087331-l7561jqebhjp77etu508uc42422e073p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTpH75rXbOh9i26uw-PTh1hI1SBLx5ilg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "60900087331-l7561jqebhjp77etu508uc42422e073p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
@@ -23,7 +25,8 @@ import org.w3c.dom.Text;
 public class RegisterUser extends AppCompatActivity implements View.OnClickListener{
 
     private EditText edtTxtName, edtTxtEmail, edtTxtPassword, edtTxtAge;
-    private TextView banner, btnRegister;
+    private TextView banner;
+    private Button btnRegister;
     private FirebaseAuth mAuth;
 
     @Override
@@ -117,12 +120,14 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
                        if(task.isSuccessful()){
                            User user = new User(name, age, email);
 
-                           FirebaseDatabase.getInstance().getReference("Users")
+
+                           FirebaseDatabase.getInstance("https://xpgainer-4d2dd-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Users")
                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                    .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                @Override
                                public void onComplete(@NonNull Task<Void> task) {
                                    if(task.isSuccessful()){
+
                                        Toast.makeText(RegisterUser.this, "User has been registered", Toast.LENGTH_LONG).show();
                                        startActivity(new Intent(RegisterUser.this, XpGainer.class));
                                    }else{
