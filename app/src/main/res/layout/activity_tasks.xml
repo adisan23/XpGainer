@@ -28,8 +28,6 @@
         app:layout_constraintGuide_begin="50dp" />
 
     <ListView
-        android:choiceMode="singleChoice"
-        android:listSelector="@android:color/darker_gray"
         android:id="@+id/availablelist"
         android:layout_width="match_parent"
         android:layout_height="671dp"
@@ -41,10 +39,12 @@
         android:layout_marginTop="60dp"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="0dp"
+        android:choiceMode="singleChoice"
+        android:listSelector="@android:color/darker_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tasksavailable" />
+        app:layout_constraintTop_toBottomOf="@+id/tasksavailable"/>
 
     <Switch
         android:id="@+id/switch2"
@@ -52,8 +52,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="46dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
+        android:checked="false"
+        android:minHeight="48dp"
         android:text="Active"
         android:textSize="22sp" />
 
