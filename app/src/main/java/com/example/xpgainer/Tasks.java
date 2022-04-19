@@ -25,6 +25,7 @@ public class Tasks extends AppCompatActivity {
 
     private ListView listAvailable;
     private Switch activeSwitch;
+    private int positionEliminate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,15 +45,20 @@ public class Tasks extends AppCompatActivity {
         ArrayAdapter<String> arrayAdapter
                 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_checked , tasks);
 
+        listAvailable.setAdapter(arrayAdapter);
+
         listAvailable.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-
+                listAvailable.setItemChecked(position, true);
+                if(listAvailable.isItemChecked(position)){
+                    positionEliminate = position;
+                    tasks.remove(position);
+                    listAvailable.setAdapter(arrayAdapter);
+                }
             }
         });
 
-        listAvailable.setAdapter(arrayAdapter);
     }
 
 
