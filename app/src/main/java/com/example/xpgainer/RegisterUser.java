@@ -115,7 +115,7 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
                    @Override
                    public void onComplete(@NonNull Task<AuthResult> task) {
                        if(task.isSuccessful()){
-                           User user = new User(name, age ,email);
+                           User user = new User(name, age, email);
 
                            FirebaseDatabase.getInstance().getReference("Users")
                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
@@ -123,14 +123,16 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
                                @Override
                                public void onComplete(@NonNull Task<Void> task) {
                                    if(task.isSuccessful()){
-                                       Toast.makeText(RegisterUser.this, "User has been registered succesfully", Toast.LENGTH_LONG).show();
+                                       Toast.makeText(RegisterUser.this, "User has been registered", Toast.LENGTH_LONG).show();
+                                       startActivity(new Intent(RegisterUser.this, XpGainer.class));
                                    }else{
-                                       Toast.makeText(RegisterUser.this, "Failed to register! Try again!", Toast.LENGTH_LONG).show();
+                                       Toast.makeText(RegisterUser.this, "Failed to register! Try again!", Toast.LENGTH_SHORT).show();
+                                       startActivity(new Intent(RegisterUser.this, XpGainer.class));
                                    }
                                }
                            });
                        }else{
-                           Toast.makeText(RegisterUser.this, "Failed to register! Try again!", Toast.LENGTH_LONG).show();
+                           Toast.makeText(RegisterUser.this, "Failed to register! Try again!", Toast.LENGTH_SHORT).show();
                        }
                    }
                });
