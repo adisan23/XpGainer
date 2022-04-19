@@ -42,6 +42,8 @@ public class Tasks extends AppCompatActivity {
         tasks.add("Read a book");
         tasks.add("Find a hobby");
 
+        ArrayList<String> tasks_completed = new ArrayList<>();
+
         ArrayAdapter<String> arrayAdapter
                 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_checked , tasks);
 
