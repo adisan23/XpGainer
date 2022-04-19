@@ -44,6 +44,13 @@ public class Tasks extends AppCompatActivity {
         ArrayAdapter<String> arrayAdapter
                 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_checked , tasks);
 
+        listAvailable.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+
+            }
+        });
 
         listAvailable.setAdapter(arrayAdapter);
     }
