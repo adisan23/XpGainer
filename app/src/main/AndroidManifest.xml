@@ -16,6 +16,12 @@
             android:name=".LaunchPage"
             android:exported="false" />
         <activity
+            android:name=".login"
+            android:exported="false" />
+        <activity
+            android:name=".firstPage"
+            android:exported="false" />
+        <activity
             android:name=".RegisterUser"
             android:exported="false" />
         <activity

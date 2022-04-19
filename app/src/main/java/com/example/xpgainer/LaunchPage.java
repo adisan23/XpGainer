@@ -42,7 +42,7 @@ public class LaunchPage extends AppCompatActivity {
 
     }
     public void openLogin() {
-        Intent intent2 = new Intent(this, Login.class);
+        Intent intent2 = new Intent(this, login.class);
         startActivity(intent2);
 
 
