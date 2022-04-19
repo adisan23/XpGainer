@@ -35,42 +35,19 @@ public class Tasks extends AppCompatActivity {
 
         activeSwitch = (Switch) findViewById(R.id.switch2);
 
-        this.listAvailable.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        ArrayList<String> tasks = new ArrayList<>();
 
-        this.listAvailable.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        tasks.add("Run 3 miles");
+        tasks.add("Read a book");
+        tasks.add("Find a hobby");
 
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                CheckedTextView v = (CheckedTextView) view;
-                boolean currentCheck = v.isChecked();
-                TasksHelper avTasks = (TasksHelper) listAvailable.getItemAtPosition(position);
-                avTasks.setActive(!currentCheck);
+        ArrayAdapter<String> arrayAdapter
+                = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_checked , tasks);
 
-            }
-        });
 
-        this.initListViewData();
+        listAvailable.setAdapter(arrayAdapter);
     }
 
-    private void initListViewData()  {
 
-        TasksHelper task1 = new TasksHelper("Run 3 miles");
-        TasksHelper task2 = new TasksHelper("Read a book");
-        TasksHelper task3 = new TasksHelper("Find a hobby");
-
-        TasksHelper[] tasks = new TasksHelper[]{task1,task2, task3};
-
-        // android.R.layout.simple_list_item_checked:
-        // ListItem is very simple (Only one CheckedTextView).
-        ArrayAdapter<TasksHelper> arrayAdapter
-                = new ArrayAdapter<TasksHelper>(this, android.R.layout.simple_list_item_checked , tasks);
-
-        this.listAvailable.setAdapter(arrayAdapter);
-
-        for(int i=0;i< tasks.length; i++ )  {
-            this.listAvailable.setItemChecked(i,tasks[i].isActive());
-        }
-
-        }
 }
 
