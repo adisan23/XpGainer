@@ -15,7 +15,7 @@ public class LaunchPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch_page);
-        registerbutton = (Button) findViewById(R.id.tasks);
+        registerbutton = (Button) findViewById(R.id.buttonreg);
 
         registerbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -25,10 +25,11 @@ public class LaunchPage extends AppCompatActivity {
             }
         });
 
-        loginbutton = findViewById(R.id.btnRegister);
+        loginbutton = findViewById(R.id.buttonlogin);
         loginbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 openLogin();
             }
         });

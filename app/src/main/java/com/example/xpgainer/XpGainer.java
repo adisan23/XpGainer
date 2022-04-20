@@ -31,14 +31,6 @@ public class XpGainer extends AppCompatActivity {
             }
         });
 
-        btnRegister = findViewById(R.id.btnRegister);
-        btnRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openRegisterPage();
-            }
-        });
-
         profilebutton = (Button) findViewById(R.id.profile);
         profilebutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,8 +80,4 @@ public class XpGainer extends AppCompatActivity {
 
     }
 
-    public void openRegisterPage(){
-        Intent registerIntent = new Intent(this, RegisterUser.class);
-        startActivity(registerIntent);
-    }
 }
