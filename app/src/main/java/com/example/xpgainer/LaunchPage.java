@@ -8,16 +8,16 @@ import android.view.View;
 import android.widget.Button;
 
 public class LaunchPage extends AppCompatActivity {
-    private Button registerbutton;
-    private Button loginbutton;
+    private Button registering;
+    private Button lounging;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch_page);
-        registerbutton = (Button) findViewById(R.id.tasks);
 
-        registerbutton.setOnClickListener(new View.OnClickListener() {
+        registering = findViewById(R.id.register);
+        registering.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openRegister();
@@ -25,8 +25,8 @@ public class LaunchPage extends AppCompatActivity {
             }
         });
 
-        loginbutton = findViewById(R.id.btnRegister);
-        loginbutton.setOnClickListener(new View.OnClickListener() {
+        lounging = findViewById(R.id.login);
+        lounging.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openLogin();

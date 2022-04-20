@@ -16,9 +16,15 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class login extends AppCompatActivity {
 
+    DatabaseReference db = FirebaseDatabase.getInstance().getReference();
     private EditText edtTxtPassword, edtTxtEmail;
     private TextView banner;
     private Button loginBtn;
@@ -29,66 +35,75 @@ public class login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        edtTxtPassword = findViewById(R.id.edtTxtEmail1);
-        edtTxtEmail = findViewById(R.id.edtTxtPassword1);
+        edtTxtPassword = findViewById(R.id.edtTxtPassword1);
+        edtTxtEmail = findViewById(R.id.edtTxtEmail1);
 
-        banner = findViewById(R.id.banner1);
+        banner = findViewById(R.id.banner);
         loginBtn = findViewById(R.id.loginBtn);
 
-        mAuth = FirebaseAuth.getInstance();
-
-    }
-
-
-    public void onClick(View view) {
-        switch(view.getId()){
-            case R.id.banner:
-                startActivity(new Intent(this, LaunchPage.class));
-                break;
-            case R.id.btnRegister:
-                loginUser();
-                break;
-        }
-    }
-
-    private void loginUser(){
-        String email = edtTxtEmail.getText().toString().trim();
-        String password = edtTxtPassword.getText().toString().trim();
-
-        if(email.isEmpty()){
-            edtTxtEmail.setError("Email is required");
-            edtTxtEmail.requestFocus();
-            return;
-        }
-
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            edtTxtEmail.setError("Please provide valid email!");
-            edtTxtEmail.requestFocus();
-            return;
-        }
-
-        if(password.isEmpty()){
-            edtTxtPassword.setError("Password is required");
-            edtTxtPassword.requestFocus();
-            return;
-        }
-
-        if(password.length() < 6){
-            edtTxtPassword.setError("Min password length should be 6 characters");
-            edtTxtPassword.requestFocus();
-            return;
-        }
-
-        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                    Toast.makeText(login.this, "Successfully Logged In", Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(login.this, XpGainer.class));
-                }else{
-                    Toast.makeText(login.this, "Account doesn't exist! Try again", Toast.LENGTH_SHORT).show();
+            public void onClick(View view) {
+                final String email = edtTxtEmail.getText().toString();
+                final String passwordTxt = edtTxtPassword.getText().toString();
+
+                if (email.isEmpty() || passwordTxt.isEmpty()) {
+                    Toast.makeText(login.this, "Please enter your email and password", Toast.LENGTH_SHORT).show();
+                } else {
+
+                    db.child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (snapshot.hasChild(email)) {
+
+                                final String getPassword = snapshot.child("tQ1nz4YdOdO2kXhiMpnJJrPRMz42").child("password").getValue(String.class);
+
+                                if (getPassword.equals(passwordTxt)) {
+                                    Toast.makeText(login.this, "Successfully logged in", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(login.this, XpGainer.class));
+                                    finish();
+                                } else {
+                                    Toast.makeText(login.this, "Wrong password", Toast.LENGTH_SHORT).show();
+                                }
+
+                            } else {
+                                Toast.makeText(login.this, "Wrong email", Toast.LENGTH_SHORT).show();
+                            }
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
                 }
+
+
             }
+
+
         });
+
+        /*mAuth.signInWithEmailAndPassword(edtTxtEmail.getText().toString(), edtTxtPassword.getText().toString()).
+                addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            FirebaseDatabase.getInstance("https://xpgainer-4d2dd-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Users")
+                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .setValue("").addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+
+                                }
+                            });
+
+                        }else{
+                            Toast.makeText(login.this, "Failed to login", Toast.LENGTH_SHORT).show();
+                        }
+                }
+
+        });*/
     }
 }

@@ -100,7 +100,14 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="171dp"
-        android:layout_marginBottom="81dp" />
+        android:layout_marginBottom="81dp"/>
+
+    <Button
+        android:id="@+id/btnFirst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="first page"
+        android:layout_below="@+id/btnRegister"/>
 
     <TextView
         android:id="@+id/activetasks"
