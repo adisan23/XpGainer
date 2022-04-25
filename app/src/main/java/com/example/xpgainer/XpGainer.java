@@ -16,12 +16,12 @@ public class XpGainer extends AppCompatActivity {
     private Button profilebutton;
     private Button activitybutton;
     private ListView actTasks;
-    private Button btnRegister;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_xp_gainer);
-        taskbutton = (Button) findViewById(R.id.tasks);
+        taskbutton = (Button) findViewById(R.id.taskbttn);
 
         taskbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,15 +31,7 @@ public class XpGainer extends AppCompatActivity {
             }
         });
 
-        btnRegister = findViewById(R.id.btnRegister);
-        btnRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openRegisterPage();
-            }
-        });
-
-        profilebutton = (Button) findViewById(R.id.profile);
+        profilebutton = (Button) findViewById(R.id.profilebttn);
         profilebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,7 +39,7 @@ public class XpGainer extends AppCompatActivity {
 
             }
         });
-        activitybutton = (Button) findViewById(R.id.activities);
+        activitybutton = (Button) findViewById(R.id.activitybttn);
         activitybutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,8 +80,4 @@ public class XpGainer extends AppCompatActivity {
 
     }
 
-    public void openRegisterPage(){
-        Intent registerIntent = new Intent(this, RegisterUser.class);
-        startActivity(registerIntent);
-    }
 }

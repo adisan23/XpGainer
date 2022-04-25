@@ -8,32 +8,6 @@
     android:background="@drawable/background">
 
 
-    <Button
-        android:id="@+id/tasks"
-        android:layout_width="115dp"
-        android:layout_height="57dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="80dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="200dp"
-        android:text="Login"
-        android:textAllCaps="false"
-        android:textSize="22sp" />
-
-    <Button
-        android:id="@+id/activities"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="475dp"
-        android:layout_marginEnd="80dp"
-        android:layout_marginBottom="200dp"
-        android:text="Register"
-        android:textAllCaps="false"
-        android:textSize="22sp" />
-
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -44,6 +18,26 @@
         android:text="XpGainer"
         android:textColorLink="#000000"
         android:textSize="50dp" />
+
+    <Button
+        android:id="@+id/bttnreg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="200dp"
+        android:text="Register" />
+
+    <Button
+        android:id="@+id/bttnlogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginBottom="200dp"
+        android:text="Login" />
 
 
 </RelativeLayout>

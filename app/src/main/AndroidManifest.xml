@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.XpGainer">
         <activity
-            android:name=".XpGainer"
+            android:name=".LaunchPage"
             android:exported="false" />
         <activity
             android:name=".login"
@@ -31,7 +31,7 @@
             android:name=".Tasks"
             android:exported="false" />
         <activity
-            android:name=".LaunchPage"
+            android:name=".XpGainer"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

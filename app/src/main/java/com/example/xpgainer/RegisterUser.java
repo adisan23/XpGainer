@@ -44,7 +44,7 @@ public class RegisterUser extends AppCompatActivity {
         banner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(RegisterUser.this, LaunchPage.class));
+                startActivity(new Intent(RegisterUser.this, XpGainer.class));
             }
         });
 
@@ -123,7 +123,7 @@ public class RegisterUser extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
-                                            startActivity(new Intent(RegisterUser.this, LaunchPage.class));
+                                            startActivity(new Intent(RegisterUser.this, XpGainer.class));
                                             Toast.makeText(RegisterUser.this, "User has been registered", Toast.LENGTH_LONG).show();
                                         } else {
                                             Toast.makeText(RegisterUser.this, "Failed to register! Try again!", Toast.LENGTH_SHORT).show();
