@@ -44,9 +44,10 @@ public class login extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 final String email = edtTxtEmail.getText().toString();
                 final String passwordTxt = edtTxtPassword.getText().toString();
-
+                /*
                 if (email.isEmpty() || passwordTxt.isEmpty()) {
                     Toast.makeText(login.this, "Please enter your email and password", Toast.LENGTH_SHORT).show();
                 } else {
@@ -77,8 +78,35 @@ public class login extends AppCompatActivity {
 
                         }
                     });
-                }
 
+                }*/
+                if(email.isEmpty() || passwordTxt.isEmpty()) {
+                    Toast.makeText(login.this, "Please enter your email and password", Toast.LENGTH_LONG).show();
+                } else {
+                    db.child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
+                        String adminPassword = "admin";
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if(adminPassword.equals(email)) {
+
+                                if(adminPassword.equals(passwordTxt)) {
+                                    Toast.makeText(login.this, "Successfully logged in", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(login.this, XpGainer.class));
+                                    finish();
+                                } else {
+                                    Toast.makeText(login.this, "Wrong password", Toast.LENGTH_SHORT).show();
+                                }
+                            } else {
+                                Toast.makeText(login.this, "Wrong email", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                }
 
             }
 
