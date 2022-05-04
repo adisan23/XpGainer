@@ -114,7 +114,7 @@ public class RegisterUser extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                User user = new User(name, age, email, password, 1, 0);
+                                User user = new User(name, age, email, 1, 0);
 
 
                                 FirebaseDatabase.getInstance("https://xpgainer-4d2dd-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Users")
@@ -123,7 +123,7 @@ public class RegisterUser extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
-                                            startActivity(new Intent(RegisterUser.this, XpGainer.class));
+                                            startActivity(new Intent(RegisterUser.this, LaunchPage.class));
                                             Toast.makeText(RegisterUser.this, "User has been registered", Toast.LENGTH_LONG).show();
                                         } else {
                                             Toast.makeText(RegisterUser.this, "Failed to register! Try again!", Toast.LENGTH_SHORT).show();

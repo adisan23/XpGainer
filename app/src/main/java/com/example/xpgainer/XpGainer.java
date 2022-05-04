@@ -16,6 +16,7 @@ public class XpGainer extends AppCompatActivity {
     private Button profilebutton;
     private Button activitybutton;
     private ListView actTasks;
+    private Button register;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +60,15 @@ public class XpGainer extends AppCompatActivity {
         );
 
         actTasks.setAdapter(atasksList);
+
+        register = findViewById(R.id.Register);
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent2 = new Intent(XpGainer.this, RegisterUser.class);
+                startActivity(intent2);
+            }
+        });
 
     }
 

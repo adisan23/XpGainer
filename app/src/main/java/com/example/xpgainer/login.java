@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +17,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,6 +31,7 @@ public class login extends AppCompatActivity {
     private TextView banner;
     private Button loginBtn;
     private FirebaseAuth mAuth;
+    private static final String TAG = "login";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,97 +44,37 @@ public class login extends AppCompatActivity {
         banner = findViewById(R.id.banner);
         loginBtn = findViewById(R.id.loginBtn);
 
-        loginBtn.setOnClickListener(new View.OnClickListener() {
+        mAuth = FirebaseAuth.getInstance();
+
+        loginBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
 
                 final String email = edtTxtEmail.getText().toString();
                 final String passwordTxt = edtTxtPassword.getText().toString();
-                /*
-                if (email.isEmpty() || passwordTxt.isEmpty()) {
-                    Toast.makeText(login.this, "Please enter your email and password", Toast.LENGTH_SHORT).show();
-                } else {
 
-                    db.child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if (snapshot.hasChild(email)) {
-
-                                final String getPassword = snapshot.child("tQ1nz4YdOdO2kXhiMpnJJrPRMz42").child("password").getValue(String.class);
-
-                                if (getPassword.equals(passwordTxt)) {
-                                    Toast.makeText(login.this, "Successfully logged in", Toast.LENGTH_SHORT).show();
+                mAuth.signInWithEmailAndPassword(email, passwordTxt)
+                        .addOnCompleteListener(login.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    // Sign in success, update UI with the signed-in user's information
+                                    Log.d(TAG, "signInWithEmail:success");
+                                    FirebaseUser user = mAuth.getCurrentUser();
                                     startActivity(new Intent(login.this, XpGainer.class));
-                                    finish();
                                 } else {
-                                    Toast.makeText(login.this, "Wrong password", Toast.LENGTH_SHORT).show();
+                                    // If sign in fails, display a message to the user.
+                                    Log.w(TAG, "signInWithEmail:failure", task.getException());
+                                    Toast.makeText(login.this, "Authentication failed.",
+                                            Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(login.this, RegisterUser.class));
                                 }
-
-                            } else {
-                                Toast.makeText(login.this, "Wrong email", Toast.LENGTH_SHORT).show();
                             }
-
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });
-
-                }*/
-                if(email.isEmpty() || passwordTxt.isEmpty()) {
-                    Toast.makeText(login.this, "Please enter your email and password", Toast.LENGTH_LONG).show();
-                } else {
-                    db.child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
-                        String adminPassword = "admin";
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if(adminPassword.equals(email)) {
-
-                                if(adminPassword.equals(passwordTxt)) {
-                                    Toast.makeText(login.this, "Successfully logged in", Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(login.this, XpGainer.class));
-                                    finish();
-                                } else {
-                                    Toast.makeText(login.this, "Wrong password", Toast.LENGTH_SHORT).show();
-                                }
-                            } else {
-                                Toast.makeText(login.this, "Wrong email", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });
-                }
-
+                        });
             }
-
-
         });
 
-        /*mAuth.signInWithEmailAndPassword(edtTxtEmail.getText().toString(), edtTxtPassword.getText().toString()).
-                addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            FirebaseDatabase.getInstance("https://xpgainer-4d2dd-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Users")
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                    .setValue("").addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-
-                                }
-                            });
-
-                        }else{
-                            Toast.makeText(login.this, "Failed to login", Toast.LENGTH_SHORT).show();
-                        }
-                }
-
-        });*/
     }
+
+
 }
