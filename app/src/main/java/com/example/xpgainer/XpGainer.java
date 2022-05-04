@@ -61,14 +61,6 @@ public class XpGainer extends AppCompatActivity {
 
         actTasks.setAdapter(atasksList);
 
-        register = findViewById(R.id.Register);
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent2 = new Intent(XpGainer.this, RegisterUser.class);
-                startActivity(intent2);
-            }
-        });
 
     }
 
