@@ -23,7 +23,37 @@ public class User {
                 "name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", age='" + age + '\'' +
+                ", level=" + level +
+                ", experience=" + experience +
                 '}';
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public void setExperience(int experience) {
+        this.experience = experience;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public int getExperience() {
+        return experience;
     }
 
     public String getName() {

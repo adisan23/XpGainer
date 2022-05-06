@@ -32,6 +32,7 @@ public class RegisterUser extends AppCompatActivity {
     private TextView banner;
     private Button btnRegister;
     private FirebaseAuth mAuth;
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,10 +117,10 @@ public class RegisterUser extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 User user = new User(name, age, email, 1, 0);
 
-
                                 FirebaseDatabase.getInstance("https://xpgainer-4d2dd-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Users")
                                         .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                         .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
