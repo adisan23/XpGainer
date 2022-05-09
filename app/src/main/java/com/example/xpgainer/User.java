@@ -1,5 +1,9 @@
 package com.example.xpgainer;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 public class User {
 
     private String name, email, age;
@@ -67,4 +71,5 @@ public class User {
     public String getAge() {
         return age;
     }
+
 }

@@ -10,6 +10,7 @@ import android.widget.Button;
 public class Community extends AppCompatActivity {
 
     private Button leaderboard;
+    private Button ctask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +27,27 @@ public class Community extends AppCompatActivity {
             }
         });
 
+        ctask = (Button) findViewById(R.id.ctasks);
+
+        ctask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openCommunityTasks();
+
+            }
+        });
+
+
+
     }
 
     public void openLeaderboard() {
         Intent intent = new Intent(this, Leaderboard.class);
+        startActivity(intent);
+    }
+
+    public void openCommunityTasks() {
+        Intent intent = new Intent(this, CommunityTasks.class);
         startActivity(intent);
     }
 

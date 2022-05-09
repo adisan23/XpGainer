@@ -4,9 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Adi/AndroidStudioProjects/XpGainer/app/src/main/res/layout/activity_community.xml" value="0.25" />
+        <entry key="..\:/Users/Adi/AndroidStudioProjects/XpGainer/app/src/main/res/layout/activity_community_tasks.xml" value="0.1" />
+        <entry key="..\:/Users/Adi/AndroidStudioProjects/XpGainer/app/src/main/res/layout/activity_display_community_tasks.xml" value="0.190625" />
         <entry key="..\:/Users/Adi/AndroidStudioProjects/XpGainer/app/src/main/res/layout/activity_leaderboard.xml" value="0.33" />
         <entry key="..\:/Users/Adi/AndroidStudioProjects/XpGainer/app/src/main/res/layout/activity_login.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Adi/AndroidStudioProjects/XpGainer/app/src/main/res/layout/activity_main.xml" value="0.20625" />
+        <entry key="..\:/Users/Adi/AndroidStudioProjects/XpGainer/app/src/main/res/layout/activity_tasks.xml" value="0.20625" />
+        <entry key="..\:/Users/Adi/AndroidStudioProjects/XpGainer/app/src/main/res/layout/activity_xp_gainer.xml" value="0.20625" />
         <entry key="..\:/Users/Adi/AndroidStudioProjects/XpGainer/app/src/main/res/layout/adapter_view_layout.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Adi/AndroidStudioProjects/XpGainer/app/src/main/res/layout/list_tasks.xml" value="0.2046875" />
         <entry key="..\:/Users/Sebastian/AndroidStudioProjects/XpGainer/app/src/main/res/layout/activity_first_page.xml" value="0.33" />
         <entry key="..\:/Users/Sebastian/AndroidStudioProjects/XpGainer/app/src/main/res/layout/activity_launch_page.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Sebastian/AndroidStudioProjects/XpGainer/app/src/main/res/layout/activity_login.xml" value="0.25" />

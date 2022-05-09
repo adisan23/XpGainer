@@ -26,13 +26,18 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class RegisterUser extends AppCompatActivity {
 
     private EditText edtTxtName, edtTxtEmail, edtTxtPassword, edtTxtAge;
     private TextView banner;
     private Button btnRegister;
     private FirebaseAuth mAuth;
-    private DatabaseReference mDatabase;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
