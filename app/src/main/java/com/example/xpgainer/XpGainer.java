@@ -77,7 +77,7 @@ public class XpGainer extends AppCompatActivity {
 
     }
     public void openActivites() {
-        Intent activitiesintent = new Intent(this, Activities.class);
+        Intent activitiesintent = new Intent(this, Community.class);
         startActivity(activitiesintent);
 
     }
