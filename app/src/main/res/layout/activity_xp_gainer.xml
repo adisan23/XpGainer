@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".XpGainer">
 
 
@@ -17,6 +18,7 @@
         android:layout_marginRight="13dp"
         android:layout_toEndOf="@+id/GainedXp"
         android:text="99999"
+        android:textColor="@android:color/holo_green_light"
         android:textSize="22sp" />
 
     <Button
@@ -66,10 +68,12 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="60dp"
         android:layout_marginTop="102dp"
-        android:layout_toEndOf="@+id/textView2"
+        android:layout_toEndOf="@+id/level"
         android:text="XP Gained : "
+        android:textColor="@color/white"
         android:textColorLink="#651FFF"
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView"
@@ -77,13 +81,15 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="102dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="100dp"
         android:text="Level: "
-        android:textSize="22sp" />
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="normal|bold" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/level"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -91,16 +97,18 @@
         android:layout_marginTop="102dp"
         android:layout_toEndOf="@+id/textView"
         android:text="1"
+        android:textColor="@android:color/holo_green_light"
         android:textSize="22sp" />
 
     <ListView
         android:id="@+id/actTasks"
         android:layout_width="match_parent"
-        android:layout_height="479dp"
+        android:layout_height="451dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="171dp"
-        android:layout_marginBottom="81dp" />
+        android:layout_marginTop="199dp"
+        android:layout_marginBottom="81dp"
+        tools:cacheColorHint="@color/white" />
 
     <TextView
         android:id="@+id/activetasks"
@@ -108,10 +116,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="142dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="146dp"
+        android:layout_marginTop="148dp"
         android:text="Active Tasks"
-        android:textSize="22sp" />
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -134,6 +145,7 @@
         android:layout_marginRight="11dp"
         android:layout_toLeftOf="@id/imageView2"
         android:text="Username"
+        android:textColor="@color/purple_200"
         android:textSize="22sp"
         android:visibility="visible"
         tools:visibility="visible" />

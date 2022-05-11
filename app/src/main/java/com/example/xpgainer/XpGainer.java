@@ -8,6 +8,14 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -17,6 +25,10 @@ public class XpGainer extends AppCompatActivity {
     private Button activitybutton;
     private ListView actTasks;
     private Button register;
+    //Text views
+    private TextView level;
+    private TextView xp;
+    private TextView username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,11 +67,40 @@ public class XpGainer extends AppCompatActivity {
         aTasks.add("Find a hobby");
         ArrayAdapter<String> atasksList = new ArrayAdapter<>(
                 this,
-                android.R.layout.simple_list_item_1,
+                R.layout.list_tasks2,
                 aTasks
         );
 
         actTasks.setAdapter(atasksList);
+
+
+        //Display User, Level, XP
+
+        username = (TextView) findViewById(R.id.Username1);
+        level = (TextView) findViewById(R.id.level);
+        xp = (TextView) findViewById(R.id.XpScore);
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance("https://xpgainer-4d2dd-default-rtdb.europe-west1.firebasedatabase.app/");
+        DatabaseReference myRef = database.getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+
+        // Read from the database
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                User user = dataSnapshot.getValue(User.class);
+
+                level.setText(Integer.toString(user.getLevel()));
+                username.setText(user.getName());
+                xp.setText(Integer.toString(user.getExperience()));
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+            }
+        });
 
 
     }

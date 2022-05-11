@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class UserListAdapter extends ArrayAdapter<UserLeaderboard> {
 
@@ -43,7 +42,7 @@ public class UserListAdapter extends ArrayAdapter<UserLeaderboard> {
         convertView = inflater.inflate(mResource, parent, false);
 
         TextView tvUsername = (TextView) convertView.findViewById(R.id.textView1);
-        TextView tvLevel = (TextView) convertView.findViewById(R.id.textView2);
+        TextView tvLevel = (TextView) convertView.findViewById(R.id.level);
         TextView tvxp = (TextView) convertView.findViewById(R.id.textView3);
 
 

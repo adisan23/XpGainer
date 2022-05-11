@@ -72,7 +72,7 @@ public class Tasks extends AppCompatActivity {
         ArrayList<String> tasks_completed = new ArrayList<>();
 
         ArrayAdapter<String> arrayAdapter
-                = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_checked , tasks);
+                = new ArrayAdapter<String>(this, R.layout.task_check , tasks);
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
