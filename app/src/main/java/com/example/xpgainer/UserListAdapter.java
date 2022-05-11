@@ -32,6 +32,10 @@ public class UserListAdapter extends ArrayAdapter<UserLeaderboard> {
         int xp = getItem(position).getXp();
         int level = getItem(position).getLevel();
 
+        String txtUser = username;
+        String txtXp = "XP: " + xp;
+        String txtLevel = "Level: " + level;
+
         UserLeaderboard user = new UserLeaderboard(username,xp,level);
 
         LayoutInflater inflater = LayoutInflater.from(mContext);
@@ -39,12 +43,14 @@ public class UserListAdapter extends ArrayAdapter<UserLeaderboard> {
         convertView = inflater.inflate(mResource, parent, false);
 
         TextView tvUsername = (TextView) convertView.findViewById(R.id.textView1);
-        TextView tvxp = (TextView) convertView.findViewById(R.id.textView2);
-        TextView tvLevel = (TextView) convertView.findViewById(R.id.textView3);
+        TextView tvLevel = (TextView) convertView.findViewById(R.id.textView2);
+        TextView tvxp = (TextView) convertView.findViewById(R.id.textView3);
 
-        tvUsername.setText(username);
-        tvxp.setText(String.valueOf(xp));
-        tvLevel.setText(String.valueOf(level));
+
+        tvUsername.setText(txtUser);
+        tvLevel.setText(txtLevel);
+        tvxp.setText(txtXp);
+
 
         return convertView;
 

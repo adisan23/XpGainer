@@ -54,9 +54,9 @@
         android:layout_marginTop="475dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="20dp"
-        android:text="Activity"
+        android:text="Community"
         android:textAllCaps="false"
-        android:textSize="22sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/GainedXp"
@@ -100,7 +100,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="171dp"
-        android:layout_marginBottom="81dp"/>
+        android:layout_marginBottom="81dp" />
 
     <TextView
         android:id="@+id/activetasks"
