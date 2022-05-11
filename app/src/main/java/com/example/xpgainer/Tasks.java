@@ -53,21 +53,16 @@ public class Tasks extends AppCompatActivity {
         tasks.add("Run 3 miles");
         tasks.add("Read a book");
         tasks.add("Find a hobby");
-        tasks.add("Run 3 miles");
-        tasks.add("Read a book");
-        tasks.add("Find a hobby");
-        tasks.add("Run 3 miles");
-        tasks.add("Read a book");
-        tasks.add("Find a hobby");
-        tasks.add("Run 3 miles");
-        tasks.add("Read a book");
-        tasks.add("Find a hobby");
-        tasks.add("Run 3 miles");
-        tasks.add("Read a book");
-        tasks.add("Find a hobby");
-        tasks.add("Run 3 miles");
-        tasks.add("Read a book");
-        tasks.add("Find a hobby");
+        tasks.add("Go fishing");
+        tasks.add("Go to the park");
+        tasks.add("Eat a fruit");
+        tasks.add("Learn a new recipe");
+        tasks.add("Go to the cinema");
+        tasks.add("Meet with a friend");
+        tasks.add("Swim 2 miles");
+        tasks.add("Make a salad");
+        tasks.add("Read the newspaper");
+        tasks.add("Play football");
 
         ArrayList<String> tasks_completed = new ArrayList<>();
 
